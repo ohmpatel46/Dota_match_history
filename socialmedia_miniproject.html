@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Media Dashboard</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+			
+			.card-body
+			{
+				margin: 0;
+			}
+					.switch {
+					  position: relative;
+					  display: inline-block;
+					  width: 40px;
+					  height: 20px;
+					}
+
+					
+					.switch input {
+					  opacity: 0;
+					  width: 0;
+					  height: 0;
+					  display: inline;
+					}
+
+					
+					.slider {
+					  position: absolute;
+					  cursor: pointer;
+					  top: 0;
+					  left: 0;
+					  right: 0;
+					  bottom: 0;
+					  background-color: #ccc;
+					  -webkit-transition: .4s;
+					  transition: .4s;
+					}
+
+					.slider:before {
+					  position: absolute;
+					  content: "";
+					  height: 16px;
+					  width: 16px;
+					  left: 2px;
+					  bottom: 2px;
+					  background-color: white;
+					  -webkit-transition: .4s;
+					  transition: .4s;
+					}
+
+					input:checked + .slider {
+					  background-image: linear-gradient(to left,hsl(210, 78%, 56%),hsl(146, 68%, 55%));
+					}
+
+					input:focus + .slider {
+					  box-shadow: 0 0 1px #2196F3;
+					}
+
+					input:checked + .slider:before {
+					  -webkit-transform: translateX(20px);
+					  -ms-transform: translateX(20px);
+					  transform: translateX(20px);
+					}
+
+					
+					.slider.round {
+					  border-radius: 34px;
+					}
+
+					.slider.round:before {
+					  border-radius: 50%;
+					}
+			body
+			{
+				background-color: hsl(0, 0%, 100%);
+				font-family: Inter;
+				color:hsl(230, 22%, 74%);
+				font-size: 12px;
+				font-weight: 500;
+			}
+			.body_dark
+			{
+				background-color: hsl(230, 17%, 14%);
+				color:hsl(228, 34%, 66%);
+			}
+			#top_bg
+			{
+				background-color:hsl(225, 100%, 98%);
+				height: 200px;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				padding-top: 30px;
+				
+			}
+			.top_bg_dark
+			{
+				background-color: hsl(232, 19%, 15%) !important;
+			}
+			h1
+			{
+				font-weight: 700;
+				font-size: 23px;
+				color:hsl(230, 17%, 14%);
+				margin-bottom: 0px;
+			}
+			.heading_dark
+			{
+				color:hsl(0, 0%, 100%) !important;
+			}
+			h2
+			{
+				font-size:20px;
+				font-weight:700px;
+				margin-bottom: 20px;
+			}
+			#topdeck
+			{
+				margin-bottom: 30px;
+			}
+			.card
+			{
+				background-color: hsl(227, 47%, 96%);
+				max-width:16rem; 
+			}
+			.card_dark
+			{
+				
+				background-color: hsl(228, 28%, 20%);
+				max-width:16rem; 
+			}
+			}
+			.card_big
+			{
+				height: 210px;
+			}
+			#twitter_card
+			{
+				border-top: 5px solid hsl(203, 89%, 53%);
+			}
+			#twitter
+			{
+				
+			}
+			.top_line
+			{
+				margin-bottom: 10px;
+				margin-top: 10px;
+			}
+			.top_line_img
+			{
+				height:20px;
+				width:20px;
+			}
+			.top_line_id
+			{
+				display: inline;
+			}
+			.number
+			{
+				color:hsl(230, 17%, 14%);
+				font-size: 50px;
+				font-weight: 700;
+				margin-bottom: 0;
+			}
+			.follow
+			{
+
+			}
+			.arrow
+			{
+				height:10px;
+				width:10px;
+			}
+			.today
+			{
+				display:inline;
+				color: #00CC00;
+			}
+			#facebook_card
+			{
+				border-top: 5px solid hsl(208, 92%, 53%);
+			}
+			#instagram_card
+			{
+				border:5px solid transparent;
+			    border-image: linear-gradient(to right ,hsl(37, 97%, 70%),hsl(329, 70%, 58%));
+			    border-image-slice: 1;
+			    border-bottom: 0;
+			    border-left: 0;
+			    border-right: 0;
+			}
+			#youtube_card
+			{
+				border-top: 5px solid hsl(348, 97%, 39%);
+            	
+			}
+			.smol_img
+			{
+				height:15px;
+				width:15px;
+				
+				margin-top: 3px;
+				
+			}
+			.smol_number
+			{
+				color:hsl(230, 17%, 14%);
+				font-size: 30px;
+				font-weight: 700;
+				margin-bottom: 0;
+			}
+			.big_stats
+			{
+				margin-top: 35px;
+				font-size: 10px;
+				color: #00CC00;
+			}
+	</style>
+
+</head>
+<body>
+<div id="top_bg">
+		<div class="container">
+			<div class="row">
+				<div id="left" class="col-sm-6">
+					<h1 class="">Social Media Dashboard</h1>
+					<p>Total followers: 23,004</p>
+				</div>
+				<div id="right" class="col-sm-6 ml-auto ">
+					
+					<label class="ml-2 switch float-right">
+						  <input type="checkbox">
+						  <span class="slider round"></span>
+					</label>
+					<p style="display:inline " class="float-sm-right">Dark Mode</p>
+				</div>
+			</div>
+			<div class="card-deck" id="topdeck">
+				
+				<div class="card card_big" id="twitter_card">
+					  <div class="card-body text-center">
+					  		<div class="top_line">
+							    <img id="twitter" class="top_line_img" src="https://image.flaticon.com/icons/svg/733/733579.svg">
+							    <p class="top_line_id" >@nathanf</p>
+							</div>
+						    <p class="number">1044</p>
+						    <p class="follow">F O L L O W E R S</p>
+						    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+						    <p class="today"> 420 Today</p>
+					  </div>
+				</div>
+				<div class="card card_big" id="facebook_card">
+					  <div class="card-body text-center">
+					  		<div class="top_line">
+							    <img id="facebook" class="top_line_img" src="https://image.flaticon.com/icons/svg/889/889102.svg">
+							    <p class="top_line_id" >@nathanf</p>
+							</div>
+						    <p class="number">1987</p>
+						    <p class="follow">F O L L O W E R S</p>
+						    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+						    <p class="today"> 69 Today</p>
+					  </div>
+				</div>
+				<div class="card card_big" id="instagram_card">
+					  <div class="card-body text-center">
+					  		<div class="top_line">
+							    <img id="instagram" class="top_line_img" src="https://image.flaticon.com/icons/svg/1384/1384063.svg">
+							    <p class="top_line_id" >@nathanf</p>
+							</div>
+						    <p class="number">1980</p>
+						    <p class="follow">F O L L O W E R S</p>
+						    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+						    <p class="today"> 69 Today</p>
+					  </div>
+				</div>
+				<div class="card card_big" id="youtube_card">
+					  <div class="card-body text-center">
+					  		<div class="top_line">
+							    <img id="youtube" class="top_line_img" src="https://image.flaticon.com/icons/svg/185/185983.svg">
+							    <p class="top_line_id" >@nathanf</p>
+							</div>
+						    <p class="number">1980</p>
+						    <p class="follow">S U B S C R I B E R S</p>
+						    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+						    <p class="today"> 420 Today</p>
+					  </div>
+				</div>
+				
+			</div>
+			<h2>Overview - Today</h2>
+			<div class="card-deck mb-4" id="middeck">
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Page Views</p>
+							    <p class="smol_number">69</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/889/889102.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Likes</p>
+							    <p class="smol_number">420</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/889/889102.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Likes</p>
+							    <p class="smol_number">69</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/1384/1384063.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Profile Views</p>
+							    <p class="smol_number">420</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/1384/1384063.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+			</div>
+			<div class="card-deck mb-4" id="middeck">
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Retweets</p>
+							    <p class="smol_number">69</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/733/733579.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Likes</p>
+							    <p class="smol_number">420</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/733/733579.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Likes</p>
+							    <p class="smol_number">69</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/185/185983.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+				<div class="card" style="max-width:16rem;">
+					  <div class="card-body">
+						  	
+							<div class="" style="display:inline-block">
+							    <p class="">Total Views</p>
+							    <p class="smol_number">420</p>
+							 </div>
+							<div class="float-right" style="display:inline;"" align="right">
+							    <img  class="smol_img" style="display:block" src="https://image.flaticon.com/icons/svg/185/185983.svg" >
+							    <div class="big_stats">
+								    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Green_Arrow_Up_Darker.svg">
+								    <p class="smol_stats" style="display:inline">420%</p>
+							    </div>
+							</div>
+							
+					  </div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+<script type="text/javascript">
+	$(".switch").change(function()
+	{
+
+		$(".card").toggleClass("card_dark");
+		$("body").toggleClass("body_dark");
+		$("#top_bg").toggleClass("top_bg_dark");
+		$(".number").toggleClass("heading_dark");
+		$(".smol_number").toggleClass("heading_dark");
+		$("h1").toggleClass("heading_dark");
+	});
+</script>
+</body>
+</html>
