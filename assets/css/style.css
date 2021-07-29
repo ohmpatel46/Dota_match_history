@@ -1,0 +1,24 @@
+body{
+    background-color: #22272E;
+    color:#A6B3C0;
+}
+.header{
+    display:flex;
+    justify-content: center;
+}
+.header h1{
+}
+
+.w-l div p{
+    text-align:center;
+}
+
+.win-number{
+    color:limegreen;
+}
+.lose-number{
+    color:red;
+}
+.mald-number{
+    color:orange;
+}
